@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Home from './screens/Home';
 import {useFonts} from 'expo-font'
 import AppLoading from 'expo-app-loading';
-
+import Navigator from './routes/homeStack'
 export default function App() {
 
   const [loaded] = useFonts({
@@ -15,9 +15,8 @@ export default function App() {
   }
 
 return (
-<Home/>
-
-)
+  <Navigator />
+  )
 
 
 
