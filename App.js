@@ -1,8 +1,18 @@
 import { useState } from 'react';
 import Home from './screens/Home';
+import About from './screens/About';
+import ReviewDetails from './screens/ReviewDetails'
 import {useFonts} from 'expo-font'
 import AppLoading from 'expo-app-loading';
-import Navigator from './routes/homeStack'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import { SafeAreaView } from 'react-native-web';
+
+
+const Stack = createNativeStackNavigator();
+
+
 export default function App() {
 
   const [loaded] = useFonts({
@@ -15,9 +25,12 @@ export default function App() {
   }
 
 return (
-  <Navigator />
+  <NavigationContainer>
+  <Stack.Navigator>
+    <Stack.Screen name="Home" component={Home} options={{ title: 'Overview' }} />
+    <Stack.Screen name="ReviewDetails" component={ReviewDetails} />
+  </Stack.Navigator>
+</NavigationContainer>
   )
-
-
 
 }
